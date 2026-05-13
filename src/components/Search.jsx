@@ -1,17 +1,18 @@
 import React from "react";
+import NewPlantForm from "./NewPlantForm";
+import PlantList from "./PlantList";
+import Search from "./Search";
 
-function Search() {
+function PlantPage({ plants, onAddPlant, search, setSearch }) {
   return (
-    <div className="searchbar">
-      <label htmlFor="search">Search Plants:</label>
-      <input
-        type="text"
-        id="search"
-        placeholder="Type a name to search..."
-        onChange={(e) => console.log("Searching...")}
-      />
-    </div>
+    <main>
+      <NewPlantForm onAddPlant={onAddPlant} />
+
+      <Search search={search} setSearch={setSearch} />
+
+      <PlantList plants={plants} />
+    </main>
   );
 }
 
-export default Search;
+export default PlantPage;
